@@ -35,6 +35,29 @@ const SIGN_TEXT = {
   Pesci:"Empatico, ricettivo e immaginativo. Puoi apparire sensibile e molto percettivo."
 };
 
+const ASC_PROFILES = {
+  Ariete: { mind:"Diretto e reattivo. Ti muovi con iniziativa e preferisci passare all’azione invece di aspettare.", love:"In amore sei spontaneo e intenso. Hai bisogno di entusiasmo, sincerità e di sentirti libero di essere te stesso.", others:"Vieni percepito come energico, deciso e difficile da ignorare. La tua immediatezza può colpire al primo incontro.", strengths:["Iniziativa", "Coraggio", "Spontaneità", "Determinazione"], challenges:["Impazienza", "Impulsività", "Reazioni rapide"], advice:"Usa la tua energia per aprire strade, lasciando però spazio all’ascolto e alla pazienza." },
+  Toro: { mind:"Concreto e paziente. Preferisci costruire qualcosa di solido e tendi a fidarti di ciò che puoi verificare.", love:"Cerchi stabilità, presenza e gesti concreti. Quando ti leghi, puoi essere molto costante e protettivo.", others:"Trasmetti calma, affidabilità e una certa solidità. Puoi apparire più tranquillo di quanto tu sia interiormente.", strengths:["Costanza", "Affidabilità", "Praticità", "Pazienza"], challenges:["Testardaggine", "Resistenza al cambiamento", "Possessività"], advice:"La tua stabilità è una risorsa: ricordati però che cambiare direzione non significa perdere sicurezza." },
+  Gemelli: { mind:"Curioso e rapido. Hai bisogno di stimoli, confronto e nuove informazioni per sentirti davvero coinvolto.", love:"Ti conquista la mente prima di tutto. Cerchi dialogo, ironia e una relazione che non diventi monotona.", others:"Appari socievole, brillante e mentalmente veloce. Le persone possono percepirti come difficile da incasellare.", strengths:["Curiosità", "Comunicazione", "Adattabilità", "Prontezza"], challenges:["Discontinuità", "Nervosismo", "Eccesso di pensieri"], advice:"Scegli gli stimoli che meritano davvero la tua attenzione e porta fino in fondo le idee più importanti." },
+  Cancro: { mind:"Sensibile e intuitivo. Leggi facilmente l’atmosfera e spesso percepisci ciò che gli altri non dicono.", love:"Hai bisogno di fiducia e sicurezza emotiva. Quando ti senti accolto, sai essere profondamente presente.", others:"Puoi apparire accogliente, prudente e molto percettivo. Non concedi subito accesso alla tua parte più privata.", strengths:["Empatia", "Intuito", "Protezione", "Memoria"], challenges:["Permalosità", "Chiusura", "Eccessiva prudenza"], advice:"Proteggi la tua sensibilità senza trasformarla in una barriera: scegliere chi far entrare è diverso dal chiudersi." },
+  Leone: { mind:"Caloroso, creativo e sicuro della tua presenza. Hai bisogno di esprimerti e di lasciare un’impronta personale.", love:"Cerchi autenticità, lealtà e coinvolgimento. Ti piace sentirti scelto e apprezzato senza rinunciare alla tua autonomia.", others:"Forte, solare e magnetico. Trasmetti energia e creatività e spesso vieni notato anche senza cercarlo.", strengths:["Carisma", "Creatività", "Generosità", "Presenza"], challenges:["Orgoglio", "Bisogno di approvazione", "Difficoltà con le critiche"], advice:"Fai brillare la tua personalità senza dover dimostrare continuamente il tuo valore: la tua presenza parla già per te." },
+  Vergine: { mind:"Analitico e osservatore. Noti dettagli, incongruenze e possibilità di miglioramento prima di molti altri.", love:"Preferisci gesti concreti alle grandi dichiarazioni. La fiducia cresce con il tempo e con la coerenza.", others:"Preciso, composto e affidabile. Puoi apparire molto esigente, soprattutto quando qualcosa ti sta davvero a cuore.", strengths:["Analisi", "Precisione", "Organizzazione", "Affidabilità"], challenges:["Autocritica", "Perfezionismo", "Eccesso di controllo"], advice:"Non aspettare che tutto sia perfetto per goderti ciò che hai costruito: lascia spazio anche all’imprevisto." },
+  Bilancia: { mind:"Diplomatico e relazionale. Valuti più prospettive e cerchi un equilibrio che non sia solo apparente.", love:"La relazione per te è dialogo, complicità e reciprocità. Ti attrae chi sa parlare e ascoltare.", others:"Elegante, disponibile e socievole. Puoi trasmettere equilibrio anche quando dentro stai ancora valutando cosa scegliere.", strengths:["Diplomazia", "Empatia", "Gusto", "Mediazione"], challenges:["Indecisione", "Eccesso di compromesso", "Evitare il conflitto"], advice:"Cercare armonia non significa rinunciare alla tua posizione: impara a dire ciò che vuoi con chiarezza." },
+  Scorpione: { mind:"Intenso e penetrante. Preferisci capire davvero le persone e le situazioni prima di mostrare completamente le tue carte.", love:"Cerchi profondità, lealtà e autenticità. Le relazioni superficiali tendono a interessarti poco.", others:"Magnetico, riservato e difficile da leggere. La tua intensità può creare curiosità anche quando parli poco.", strengths:["Profondità", "Determinazione", "Intuito", "Lealtà"], challenges:["Diffidenza", "Rigidità", "Tendenza a trattenere"], advice:"La tua profondità è potente: usala per comprendere, non per proteggerti da ogni possibile delusione." },
+  Sagittario: { mind:"Espansivo e curioso. Hai bisogno di prospettive ampie, esperienze e della sensazione di poter scegliere la tua direzione.", love:"Cerchi complicità, sincerità e spazio personale. Ti innamora chi sa condividere entusiasmo senza soffocarti.", others:"Solare, diretto e avventuroso. Puoi dare l’impressione di avere sempre una nuova idea o una nuova strada davanti.", strengths:["Ottimismo", "Visione", "Entusiasmo", "Sincerità"], challenges:["Irrequietezza", "Eccesso di franchezza", "Discontinuità"], advice:"Conserva il tuo slancio, ma ricorda che anche la libertà cresce quando impari a portare a termine ciò che inizi." },
+  Capricorno: { mind:"Concreto e strategico. Valuti obiettivi, tempi e conseguenze prima di muoverti.", love:"Dimostri affetto soprattutto con presenza e responsabilità. La fiducia per te si costruisce con i fatti.", others:"Serio, composto e affidabile. Puoi sembrare più controllato di quanto sia il tuo mondo interiore.", strengths:["Disciplina", "Responsabilità", "Resistenza", "Strategia"], challenges:["Rigidità", "Eccesso di controllo", "Difficoltà a mostrarti vulnerabile"], advice:"La tua capacità di reggere il peso delle cose è preziosa: concediti anche leggerezza e spontaneità." },
+  Acquario: { mind:"Indipendente e originale. Ti piace osservare il mondo da una prospettiva diversa e mettere in discussione ciò che dai per scontato.", love:"Cerchi complicità mentale e libertà. Hai bisogno di sentirti scelto senza percepire la relazione come una gabbia.", others:"Originale, indipendente e imprevedibile. Puoi lasciare l’impressione di essere sempre un passo fuori dagli schemi.", strengths:["Originalità", "Visione", "Autonomia", "Creatività"], challenges:["Distacco", "Testardaggine mentale", "Bisogno di spazio"], advice:"Difendi la tua unicità, ma ricorda che lasciarsi coinvolgere non significa perdere la propria libertà." },
+  Pesci: { mind:"Ricettivo e immaginativo. Assorbi facilmente atmosfere e sfumature e spesso segui ciò che senti prima di razionalizzarlo.", love:"Hai bisogno di connessione emotiva, gentilezza e comprensione. Quando ti senti al sicuro, dai molto.", others:"Dolce, intuitivo e sfuggente. Le persone possono percepire una sensibilità che non mostri subito a parole.", strengths:["Empatia", "Immaginazione", "Intuito", "Sensibilità"], challenges:["Confini deboli", "Idealizzazione", "Sovraccarico emotivo"], advice:"La sensibilità è una bussola, non un limite: proteggila con confini chiari e scelte concrete." }
+};
+
+function buildCombination(sun, asc){
+  const p=ASC_PROFILES[asc.name];
+  return {
+    headline:`${sun.name} con Ascendente ${asc.name}`,
+    intro:`La tua identità solare in ${sun.name} incontra il modo di mostrarti al mondo tipico dell’Ascendente ${asc.name}. ${p.others}`
+  };
+}
+
 function norm360(x){ return ((x % 360) + 360) % 360; }
 
 function sunSign(month, day){
@@ -155,7 +178,7 @@ function App(){
     const [y,m,d] = form.date.split("-").map(Number);
     const sun = sunSign(m,d);
     const asc = calculateAscendant(form.date,form.time,Number(form.lat),Number(form.lon),form.timezone);
-    setResult({sun,asc,form});
+    setResult({sun,asc,form,profile:ASC_PROFILES[asc.sign.name],combo:buildCombination(sun,asc.sign)});
   }
 
   async function savePng(){
@@ -222,8 +245,8 @@ function App(){
 
       <div className="combination">
         <div className="mini-label">LA TUA COMBINAZIONE</div>
-        <h3>{result.sun.symbol} {result.sun.name} <span>+</span> ↑ {result.asc.sign.name}</h3>
-        <p>Il segno solare descrive la tua identità di base; l'Ascendente rappresenta il modo in cui ti presenti e il primo impatto che puoi trasmettere agli altri.</p>
+        <h3>{result.sun.symbol} {result.combo.headline}</h3>
+        <p>{result.combo.intro}</p>
       </div>
 
       <div className="actions">
@@ -232,19 +255,43 @@ function App(){
       </div>
 
       <div className="astro-card" ref={cardRef}>
-        <div className="card-brand">@oroscopoxacquario</div>
-        <div className="card-title">IL MIO PROFILO<br/>ASTROLOGICO</div>
-        {result.form.name && <div className="card-name">{result.form.name}</div>}
-        <div className="card-pair">
-          <div><span>☀</span><b>{result.sun.symbol} {result.sun.name}</b><small>SEGNO SOLARE</small></div>
-          <div><span>↑</span><b>{result.asc.sign.symbol} {result.asc.sign.name}</b><small>ASCENDENTE</small><strong>{result.asc.degree}° {String(result.asc.minute).padStart(2,"0")}'</strong></div>
+        <div className="card-hero">
+          <img src="/assets/kairo-panda.png" alt="Kairo Panda" />
+          <div className="hero-overlay"></div>
+          <div className="card-hero-copy">
+            <div className="card-kicker">IL MIO PROFILO</div>
+            <div className="card-title">ASTROLOGICO</div>
+            {result.form.name && <div className="card-name">{result.form.name}</div>}
+          </div>
+          <div className="card-birth">
+            <span>DATA <b>{new Date(result.form.date+"T12:00").toLocaleDateString("it-IT")}</b></span>
+            <span>ORA <b>{result.form.time}</b></span>
+            <span>LUOGO <b>{result.form.city}</b></span>
+          </div>
         </div>
-        <div className="card-data">
-          <span>DATA <b>{new Date(result.form.date+"T12:00").toLocaleDateString("it-IT")}</b></span>
-          <span>ORA <b>{result.form.time}</b></span>
-          <span>LUOGO <b>{result.form.city}</b></span>
+
+        <div className="card-signs">
+          <div className="card-sign solar"><div className="sign-orb">{result.sun.symbol}</div><div><small>SEGNO SOLARE</small><b>{result.sun.name}</b><span>{result.sun.element} · {result.sun.modality} · {result.sun.ruler}</span></div></div>
+          <div className="plus">+</div>
+          <div className="card-sign rising"><div className="sign-orb">{result.asc.sign.symbol}</div><div><small>ASCENDENTE</small><b>{result.asc.sign.name}</b><span>{result.asc.sign.element} · {result.asc.sign.modality} · {result.asc.sign.ruler}</span></div><strong>{result.asc.degree}° {String(result.asc.minute).padStart(2,"0")}'</strong></div>
         </div>
-        <div className="card-footer">Instagram · Facebook</div>
+
+        <div className="card-combo">
+          <div className="mini-label">LA TUA COMBINAZIONE</div>
+          <h4>{result.sun.name} con Ascendente {result.asc.sign.name}</h4>
+          <p>{result.combo.intro}</p>
+        </div>
+
+        <div className="profile-grid">
+          <article><h5>MENTALITÀ</h5><p>{result.profile.mind}</p></article>
+          <article><h5>NELLE RELAZIONI</h5><p>{result.profile.love}</p></article>
+          <article><h5>COME TI VEDONO GLI ALTRI</h5><p>{result.profile.others}</p></article>
+          <article><h5>I TUOI PUNTI DI FORZA</h5><ul>{result.profile.strengths.map(x=><li key={x}>{x}</li>)}</ul></article>
+          <article><h5>LE TUE SFIDE</h5><ul>{result.profile.challenges.map(x=><li key={x}>{x}</li>)}</ul></article>
+          <article><h5>CONSIGLIO PER TE</h5><p>{result.profile.advice}</p></article>
+        </div>
+
+        <div className="card-footer"><b>@oroscopoxacquario</b><span>Instagram · Facebook</span></div>
       </div>
     </section>}
   </main>
