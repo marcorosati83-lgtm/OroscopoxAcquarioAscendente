@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8eee8"/><stop offset=".5" stop-color="#eee2f3"/><stop offset="1" stop-color="#e7d8e9"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#fff8ee" stop-opacity=".95"/><stop offset="1" stop-color="#fff8ee" stop-opacity="0"/></radialGradient>
+  <linearGradient id="hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9a67c2"/><stop offset="1" stop-color="#4e2e72"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27263e"/><stop offset=".45" stop-color="#5e587e"/><stop offset="1" stop-color="#171827"/></linearGradient>
+</defs>
+<rect width="1600" height="760" fill="url(#sky)"/>
+<circle cx="1190" cy="170" r="250" fill="url(#glow)"/>
+<circle cx="420" cy="210" r="180" fill="url(#glow)" opacity=".7"/>
+<g fill="#d7b7e2" opacity=".45">
+  <circle cx="1350" cy="500" r="95"/><circle cx="1450" cy="470" r="130"/><circle cx="1280" cy="470" r="70"/>
+  <circle cx="260" cy="570" r="110"/><circle cx="390" cy="535" r="145"/>
+</g>
+<g transform="translate(820 20)">
+  <ellipse cx="0" cy="245" rx="250" ry="225" fill="#f8f5ef"/>
+  <circle cx="-185" cy="90" r="105" fill="#2d2531"/>
+  <circle cx="185" cy="90" r="105" fill="#2d2531"/>
+  <circle cx="-178" cy="85" r="66" fill="#f5f2eb"/>
+  <circle cx="178" cy="85" r="66" fill="#f5f2eb"/>
+  <ellipse cx="0" cy="245" rx="205" ry="185" fill="#fffdf8"/>
+  <ellipse cx="-85" cy="225" rx="60" ry="75" fill="#282231"/>
+  <ellipse cx="85" cy="225" rx="60" ry="75" fill="#282231"/>
+  <ellipse cx="0" cy="330" rx="34" ry="24" fill="#29232e"/>
+  <path d="M-20 355 Q0 372 20 355" fill="none" stroke="#29232e" stroke-width="8" stroke-linecap="round"/>
+  <path d="M-110 75 Q0 0 110 75" fill="none" stroke="#2a2330" stroke-width="28" stroke-linecap="round"/>
+  <g transform="translate(-105 70) rotate(-8)">
+    <rect x="-115" y="-58" width="105" height="118" rx="38" fill="url(#glass)" stroke="#151523" stroke-width="16"/>
+    <rect x="10" y="-58" width="105" height="118" rx="38" fill="url(#glass)" stroke="#151523" stroke-width="16"/>
+    <path d="M-10 0 H10" stroke="#151523" stroke-width="18"/>
+    <path d="M-105 -25 L-35 -5" stroke="#a99fc3" stroke-width="7" opacity=".55"/>
+    <path d="M20 -25 L90 -5" stroke="#a99fc3" stroke-width="7" opacity=".55"/>
+  </g>
+  <path d="M-285 560 Q0 410 285 560 L335 760 H-335 Z" fill="url(#hood)"/>
+  <path d="M-155 520 Q0 650 155 520" fill="none" stroke="#c69be1" stroke-width="16" opacity=".8"/>
+  <path d="M0 545 l-38 42 38 42 38-42z" fill="none" stroke="#f3e7fb" stroke-width="10"/>
+  <path d="M-80 760 V640 M80 760 V640" stroke="#3a234f" stroke-width="22" opacity=".7"/>
+  <path d="M-245 570 Q-330 620 -360 735" fill="none" stroke="#f8f5ef" stroke-width="80" stroke-linecap="round"/>
+  <path d="M245 570 Q330 620 360 735" fill="none" stroke="#f8f5ef" stroke-width="80" stroke-linecap="round"/>
+</g>
+</svg>
