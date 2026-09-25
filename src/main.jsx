@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { toPng } from "html-to-image";
 import jsPDF from "jspdf";
@@ -176,8 +176,13 @@ function App(){
   }
 
   async function calculate(){
-    if(!form.date || !form.time || !form.lat || !form.lon) return;
+    if(!form.date || !form.time || !form.lat || !form.lon || !form.timezone) return;
     const [y,m,d] = form.date.split("-").map(Number);
+    const currentYear = new Date().getFullYear();
+    if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(form.date) || y < 1900 || y > currentYear || m < 1 || m > 12 || d < 1 || d > 31){
+      setSaveStatus({type:"error",message:"Inserisci una data di nascita valida."});
+      return;
+    }
     const sun = sunSign(m,d);
     const asc = calculateAscendant(form.date,form.time,Number(form.lat),Number(form.lon),form.timezone);
     setResult({sun,asc,form,profile:ASC_PROFILES[asc.sign.name],combo:buildCombination(sun,asc.sign)});
@@ -212,12 +217,6 @@ function App(){
     }else{
       setSaveStatus(null);
     }
-  }
-
-  async function savePng(){
-    if(!cardRef.current) return;
-    const data = await toPng(cardRef.current,{pixelRatio:3,cacheBust:true});
-    const a=document.createElement("a"); a.download="profilo-astrologico.png"; a.href=data; a.click();
   }
 
   async function savePdf(){
