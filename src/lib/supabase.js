@@ -1,20 +1,21 @@
 import { createClient } from "@supabase/supabase-js";
 
+const SUPABASE_URL = "https://nsvslecczhduameqmukt.supabase.co";
+
 export async function saveCalculation(data) {
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
   const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn("Supabase non configurato: variabili VITE_SUPABASE mancanti nel build.");
+  if (!supabaseAnonKey) {
+    console.warn("Supabase non configurato: VITE_SUPABASE_ANON_KEY mancante nel build.");
     return {
       ok: false,
-      code: "MISSING_ENV",
-      message: "Variabili Supabase non disponibili nel build Vercel."
+      code: "MISSING_KEY",
+      message: "Chiave Supabase non disponibile nel build Vercel."
     };
   }
 
   try {
-    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+    const supabase = createClient(SUPABASE_URL, supabaseAnonKey);
     const { error } = await supabase.from("calculations").insert(data);
 
     if (error) {
