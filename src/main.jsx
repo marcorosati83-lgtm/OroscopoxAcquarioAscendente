@@ -344,7 +344,7 @@ function App(){
 
         <div className="card-signs">
           <div className="card-sign solar"><div className="sign-orb">{result.sun.symbol}</div><div><small>SEGNO SOLARE</small><b>{result.sun.name}</b><span>{result.sun.element} · {result.sun.modality} · {result.sun.ruler}</span></div></div>
-          <div className="plus"></div>
+          <div className="plus"><span></span><b>{result.asc.degree}° {String(result.asc.minute).padStart(2,"0")}'</b></div>
           <div className="card-sign rising"><div className="sign-orb">{result.asc.sign.symbol}</div><div><small>ASCENDENTE</small><b>{result.asc.sign.name}</b><span>{result.asc.sign.element} · {result.asc.sign.modality} · {result.asc.sign.ruler}</span></div><strong>{result.asc.degree}° {String(result.asc.minute).padStart(2,"0")}'</strong></div>
         </div>
 
