@@ -1,21 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 
 const SUPABASE_URL = "https://nsvslecczhduameqmukt.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wNOPun4Bm7LIDRdPc0UX_g_pD3ZiMx2";
 
 export async function saveCalculation(data) {
-  const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-  if (!supabaseAnonKey) {
-    console.warn("Supabase non configurato: VITE_SUPABASE_ANON_KEY mancante nel build.");
-    return {
-      ok: false,
-      code: "MISSING_KEY",
-      message: "Chiave Supabase non disponibile nel build Vercel."
-    };
-  }
-
   try {
-    const supabase = createClient(SUPABASE_URL, supabaseAnonKey);
+    const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
     const { error } = await supabase.from("calculations").insert(data);
 
     if (error) {
