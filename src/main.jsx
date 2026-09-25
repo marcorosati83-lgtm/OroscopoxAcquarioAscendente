@@ -149,6 +149,7 @@ function App(){
   const [cities,setCities] = useState([]);
   const [loadingCities,setLoadingCities] = useState(false);
   const [saveProfile,setSaveProfile] = useState(false);
+  const [saveStatus,setSaveStatus] = useState(null);
   const cardRef = useRef(null);
 
   async function searchCity(){
@@ -182,21 +183,34 @@ function App(){
     setResult({sun,asc,form,profile:ASC_PROFILES[asc.sign.name],combo:buildCombination(sun,asc.sign)});
 
     if(saveProfile){
-      const { saveCalculation } = await import("./lib/supabase");
-      const error = await saveCalculation({
-        name: form.name || null,
-        birth_date: form.date,
-        birth_time: form.time,
-        birth_place: form.city,
-        latitude: Number(form.lat),
-        longitude: Number(form.lon),
-        timezone: form.timezone,
-        sun_sign: sun.name,
-        ascendant_sign: asc.sign.name,
-        ascendant_degree: asc.degree,
-        ascendant_minute: asc.minute
-      });
-      if(error) console.error("Errore salvataggio Supabase:", error);
+      setSaveStatus({type:"saving",message:"Salvataggio del profilo in corso…"});
+      try{
+        const { saveCalculation } = await import("./lib/supabase");
+        const status = await saveCalculation({
+          name: form.name || null,
+          birth_date: form.date,
+          birth_time: form.time,
+          birth_place: form.city,
+          latitude: Number(form.lat),
+          longitude: Number(form.lon),
+          timezone: form.timezone,
+          sun_sign: sun.name,
+          ascendant_sign: asc.sign.name,
+          ascendant_degree: asc.degree,
+          ascendant_minute: asc.minute
+        });
+        if(status?.ok){
+          setSaveStatus({type:"success",message:"Profilo salvato correttamente in Supabase."});
+        }else{
+          console.error("Errore salvataggio Supabase:", status);
+          setSaveStatus({type:"error",message:status?.message || "Il profilo non è stato salvato."});
+        }
+      }catch(error){
+        console.error("Errore caricamento Supabase:", error);
+        setSaveStatus({type:"error",message:error?.message || "Errore di collegamento a Supabase."});
+      }
+    }else{
+      setSaveStatus(null);
     }
   }
 
@@ -264,6 +278,7 @@ function App(){
         <input type="checkbox" checked={saveProfile} onChange={e=>setSaveProfile(e.target.checked)} />
         <span>Salva il mio profilo nel database per poterlo utilizzare in future funzioni.</span>
       </label>
+      {saveStatus && <div className={`save-status ${saveStatus.type}`}>{saveStatus.message}</div>}
       <div className="privacy">Il calcolo viene eseguito nel browser. I dati vengono salvati solo se selezioni l’opzione sopra.</div>
     </section>
 
