@@ -1,0 +1,28 @@
+name: Install exact master PNG v14
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/install-master-v14-retry.yml"
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact master
+        run: |
+          set -euxo pipefail
+          curl -L --fail --retry 3 --output public/assets/master-v14.png "https://d2ol7oe51mr4n9.cloudfront.net/user_3IrCswCI2cljMhgXUxCCGJSFFOh/ce5861fa-df89-4c2f-9130-384d1d1ea574.png"
+          file public/assets/master-v14.png
+          ls -lh public/assets/master-v14.png
+      - name: Remove legacy artwork
+        run: rm -f public/assets/hero-cosmic.png public/assets/hero-cosmic.svg public/assets/hero-aquarius.svg public/assets/kairo-panda.svg
+      - name: Commit exact master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/assets
+          git diff --cached --quiet || git commit -m "V1.4: exact master card PNG"
+          git push
