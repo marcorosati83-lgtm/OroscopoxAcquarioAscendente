@@ -46,3 +46,11 @@ main{max-width:1080px;margin:auto;padding:42px 18px 80px}.hero{text-align:center
  .download-actions{grid-template-columns:1fr}
  .download-btn{width:100%}
 }
+
+/* V1.4 - cosmic universal card */
+.card-hero{background:#eee3f2;}
+.card-hero img{object-position:center center;transform:none;}
+.hero-overlay{background:linear-gradient(90deg,rgba(251,246,238,.88) 0%,rgba(251,246,238,.34) 34%,rgba(251,246,238,.02) 68%),linear-gradient(0deg,rgba(30,20,40,.10),transparent 52%);}
+.download-actions{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin:4px auto 0;}
+.download-btn.mobile{background:#202d48;color:#fff;border-color:#202d48;}
+@media(max-width:700px){.download-actions{grid-template-columns:1fr}.card-hero{min-height:190px}}
