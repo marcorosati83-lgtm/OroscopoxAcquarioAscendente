@@ -333,7 +333,7 @@ function App(){
           <div className="card-hero-copy">
             <div className="card-kicker">IL MIO PROFILO</div>
             <div className="card-title">ASTROLOGICO</div>
-            {result.form.name && <div className="card-name">{result.form.name}</div><div className="card-tagline">“Visione oltre i confini,<br/>con un cuore che brilla.”</div><div className="card-divider">✦</div>}
+            {result.form.name && (<><div className="card-name">{result.form.name}</div><div className="card-tagline">“Visione oltre i confini,<br/>con un cuore che brilla.”</div><div className="card-divider">✦</div></>)}
           </div>
           <div className="card-birth">
             <span>DATA <b>{new Date(result.form.date+"T12:00").toLocaleDateString("it-IT")}</b></span>
