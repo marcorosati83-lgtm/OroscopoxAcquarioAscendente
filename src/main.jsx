@@ -197,75 +197,25 @@ function App(){
   }
 
   async function saveWallpaper(width,height,filename){
-    if(!result) return;
-    const canvas=document.createElement("canvas");
-    canvas.width=width; canvas.height=height;
-    const ctx=canvas.getContext("2d");
-    const g=ctx.createLinearGradient(0,0,width,height);
-    g.addColorStop(0,"#fbf1e7"); g.addColorStop(.38,"#e9ddf4"); g.addColorStop(.68,"#c9c8e8"); g.addColorStop(1,"#f7e5d3");
-    ctx.fillStyle=g; ctx.fillRect(0,0,width,height);
-
-    // Soft cosmic glows.
-    const glows=[
-      [width*.18,height*.18,width*.28,"rgba(255,220,190,.55)"],
-      [width*.78,height*.22,width*.30,"rgba(145,125,205,.32)"],
-      [width*.50,height*.52,width*.36,"rgba(255,238,190,.28)"],
-      [width*.18,height*.78,width*.25,"rgba(150,125,200,.22)"]
-    ];
-    for(const [x,y,r,color] of glows){
-      const rg=ctx.createRadialGradient(x,y,0,x,y,r);
-      rg.addColorStop(0,color); rg.addColorStop(1,"rgba(255,255,255,0)");
-      ctx.fillStyle=rg; ctx.fillRect(0,0,width,height);
-    }
-
-    // Stars.
-    ctx.fillStyle="rgba(255,255,255,.9)";
-    for(let i=0;i<90;i++){
-      const x=(i*83.17)%width, y=(i*137.31)%height, r=1+(i%3)*.55;
-      ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill();
-    }
-
-    // Zodiac wheel.
-    const cx=width*.5, cy=height*.29, radius=Math.min(width,height)*.22;
-    ctx.save();
-    ctx.strokeStyle="rgba(184,139,75,.65)";
-    ctx.lineWidth=Math.max(2,width*.0012);
-    [radius,radius*.82,radius*.63].forEach(r=>{ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();});
-    for(let i=0;i<12;i++){
-      const a=(i*Math.PI*2/12)-Math.PI/2;
-      ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*radius*.63,cy+Math.sin(a)*radius*.63);ctx.lineTo(cx+Math.cos(a)*radius,cy+Math.sin(a)*radius);ctx.stroke();
-    }
-    ctx.fillStyle="#a8783f"; ctx.font=`bold ${Math.round(width*.045)}px Georgia`; ctx.textAlign="center"; ctx.textBaseline="middle";
-    SIGNS.forEach((s,i)=>{
-      const a=(i*Math.PI*2/12)-Math.PI/2;
-      ctx.fillText(s.symbol,cx+Math.cos(a)*radius*.91,cy+Math.sin(a)*radius*.91);
-    });
-    ctx.restore();
-
-    const left=width*.08;
-    ctx.textAlign="left";
-    ctx.fillStyle="#20263a"; ctx.font=`700 ${Math.round(width*.055)}px Georgia`;
-    ctx.fillText("IL MIO PROFILO",left,height*.075);
-    ctx.fillText("ASTROLOGICO",left,height*.135);
-    ctx.fillStyle="#7454a6"; ctx.font=`700 ${Math.round(width*.035)}px Georgia`;
-    ctx.fillText(result.form.name || "Profilo astrologico",left,height*.19);
-
-    ctx.fillStyle="#20263a"; ctx.font=`500 ${Math.round(width*.022)}px Arial`;
-    ctx.fillText(`SOLE: ${result.sun.symbol} ${result.sun.name}`,left,height*.69);
-    ctx.fillText(`ASCENDENTE: ${result.asc.sign.symbol} ${result.asc.sign.name}`,left,height*.73);
-    ctx.fillStyle="#7454a6"; ctx.font=`700 ${Math.round(width*.025)}px Georgia`;
-    ctx.fillText(`${result.asc.degree}° ${String(result.asc.minute).padStart(2,"0")}'`,left,height*.77);
-
-    ctx.textAlign="center";
-    ctx.fillStyle="#20263a"; ctx.font=`700 ${Math.round(width*.04)}px Georgia`;
-    ctx.fillText(`${result.sun.name} con Ascendente ${result.asc.sign.name}`,width*.5,height*.84);
-    ctx.fillStyle="#4e2e6e"; ctx.font=`700 ${Math.round(width*.028)}px Georgia`;
-    ctx.fillText("@oroscopoxacquario",width*.5,height*.92);
-    ctx.fillStyle="#75667d"; ctx.font=`500 ${Math.round(width*.016)}px Arial`;
-    ctx.fillText("Instagram · Facebook",width*.5,height*.945);
-
-    const data=canvas.toDataURL("image/png");
-    const a=document.createElement("a"); a.download=filename; a.href=data; a.click();
+    if(!cardRef.current) return;
+    const source=await toPng(cardRef.current,{pixelRatio:3,cacheBust:true});
+    const img=new Image();
+    img.onload=()=>{
+      const canvas=document.createElement("canvas");
+      canvas.width=width; canvas.height=height;
+      const ctx=canvas.getContext("2d");
+      ctx.fillStyle="#fbf3e9";
+      ctx.fillRect(0,0,width,height);
+      const scale=Math.max(width/img.width,height/img.height);
+      const dw=img.width*scale, dh=img.height*scale;
+      const dx=(width-dw)/2, dy=(height-dh)/2;
+      ctx.drawImage(img,dx,dy,dw,dh);
+      const a=document.createElement("a");
+      a.download=filename;
+      a.href=canvas.toDataURL("image/png");
+      a.click();
+    };
+    img.src=source;
   }
 
   return <main>
