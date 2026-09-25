@@ -287,7 +287,7 @@ function App(){
 
       <div className="astro-card" ref={cardRef}>
         <div className="card-hero">
-          <img src="/assets/kairo-panda.svg" alt="Kairo Panda" />
+          <img src="/assets/hero-aquarius.svg" alt="Illustrazione Acquario" />
           <div className="hero-overlay"></div>
           <div className="asc-hero-badge">{result.asc.sign.symbol}</div>
           <div className="card-hero-copy">
