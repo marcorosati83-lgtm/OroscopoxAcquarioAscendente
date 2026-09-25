@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5e8f2"/><stop offset=".48" stop-color="#d9c7e9"/><stop offset="1" stop-color="#f2dcc4"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+ <linearGradient id="gold"><stop stop-color="#d9ae70"/><stop offset="1" stop-color="#80552d"/></linearGradient>
+</defs>
+<rect width="1600" height="620" fill="url(#bg)"/>
+<circle cx="1160" cy="210" r="290" fill="url(#glow)"/>
+<circle cx="330" cy="460" r="210" fill="url(#glow)" opacity=".55"/>
+<g fill="none" stroke="#7650a2" stroke-linecap="round" opacity=".72">
+ <path d="M760 145 C900 80 1010 110 1120 185 S1350 285 1510 180" stroke-width="22"/>
+ <path d="M700 270 C850 205 990 240 1110 315 S1350 410 1530 300" stroke-width="17"/>
+ <path d="M790 400 C940 345 1060 375 1190 445 S1390 520 1540 430" stroke-width="12"/>
+</g>
+<g fill="#fff8ef">
+ <circle cx="1030" cy="115" r="7"/><circle cx="1090" cy="175" r="5"/><circle cx="1180" cy="95" r="6"/><circle cx="1260" cy="160" r="8"/><circle cx="1350" cy="105" r="5"/><circle cx="1420" cy="215" r="7"/>
+</g>
+<g transform="translate(390 90)">
+ <circle cx="0" cy="0" r="12" fill="#7650a2"/><circle cx="75" cy="42" r="9" fill="#7650a2"/><circle cx="155" cy="-18" r="8" fill="#7650a2"/><circle cx="225" cy="55" r="10" fill="#7650a2"/><circle cx="300" cy="0" r="8" fill="#7650a2"/>
+ <g stroke="#7650a2" stroke-width="4" opacity=".6"><path d="M0 0L75 42 155-18 225 55 300 0"/></g>
+</g>
+<text x="105" y="185" font-family="Georgia,serif" font-size="78" font-weight="700" fill="#24243b">ACQUARIO</text>
+<text x="110" y="235" font-family="Arial,sans-serif" font-size="23" letter-spacing="9" fill="#7650a2">ENERGIA · LIBERTÀ · VISIONE</text>
+<g transform="translate(1210 365)">
+ <circle r="118" fill="rgba(255,249,239,.65)" stroke="url(#gold)" stroke-width="7"/>
+ <path d="M-48 -8 Q-5 -55 38 -8 Q5 32 -48 -8Z" fill="none" stroke="url(#gold)" stroke-width="10"/>
+ <path d="M-62 28 Q-5 -10 52 28 Q8 68 -62 28Z" fill="none" stroke="url(#gold)" stroke-width="10"/>
+ <circle cx="-45" cy="-55" r="7" fill="#7650a2"/><circle cx="46" cy="-55" r="7" fill="#7650a2"/>
+</g>
+<text x="1110" y="550" font-family="Arial,sans-serif" font-size="19" letter-spacing="4" fill="#6f4a31">IL TUO CIELO, LA TUA IDENTITÀ</text>
+</svg>
