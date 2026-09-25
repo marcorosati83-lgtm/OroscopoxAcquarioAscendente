@@ -1,48 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620">
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-    <stop stop-color="#f7eee8"/><stop offset=".45" stop-color="#e9dcf1"/><stop offset="1" stop-color="#ead6e9"/>
-  </linearGradient>
-  <radialGradient id="light">
-    <stop stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
-  </radialGradient>
-  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-    <stop stop-color="#e0bb7a"/><stop offset=".5" stop-color="#b77e3d"/><stop offset="1" stop-color="#704522"/>
-  </linearGradient>
+<linearGradient id="sky" x2="1" y2="1"><stop stop-color="#f8e7ea"/><stop offset=".45" stop-color="#bda4dc"/><stop offset="1" stop-color="#f2c98e"/></linearGradient>
+<linearGradient id="gold"><stop stop-color="#f1ca83"/><stop offset="1" stop-color="#8a5428"/></linearGradient>
+<linearGradient id="purple"><stop stop-color="#9c5de0"/><stop offset="1" stop-color="#4d287e"/></linearGradient>
+<linearGradient id="water" x2="0" y2="1"><stop stop-color="#8deaff"/><stop offset=".45" stop-color="#4c7eff"/><stop offset="1" stop-color="#281c78"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
 </defs>
-<rect width="1600" height="620" fill="url(#bg)"/>
-<circle cx="1110" cy="230" r="310" fill="url(#light)" opacity=".75"/>
-<circle cx="290" cy="470" r="240" fill="url(#light)" opacity=".5"/>
+<rect width="1600" height="620" fill="url(#sky)"/>
+<circle cx="1050" cy="180" r="300" fill="url(#glow)" opacity=".7"/>
+<g fill="#fff8e8" opacity=".9"><circle cx="110" cy="90" r="5"/><circle cx="260" cy="145" r="7"/><circle cx="420" cy="70" r="4"/><circle cx="690" cy="100" r="6"/><circle cx="940" cy="55" r="5"/><circle cx="1460" cy="95" r="7"/></g>
 
-<!-- Aquarius constellation -->
-<g transform="translate(210 95)" fill="#7650a2" opacity=".8">
-  <circle cx="0" cy="70" r="8"/><circle cx="85" cy="25" r="6"/><circle cx="165" cy="95" r="8"/>
-  <circle cx="255" cy="35" r="6"/><circle cx="345" cy="115" r="8"/><circle cx="430" cy="65" r="6"/>
-  <g fill="none" stroke="#7650a2" stroke-width="3" opacity=".65">
-    <path d="M0 70L85 25L165 95L255 35L345 115L430 65"/>
-  </g>
+<!-- flowing cosmic water -->
+<path d="M0 520 C190 430 300 500 430 445 S700 390 830 465 S1100 555 1600 410 L1600 620 L0 620Z" fill="url(#water)" opacity=".9"/>
+<path d="M0 505 C180 425 315 490 455 438 S700 410 835 470" fill="none" stroke="#c9f8ff" stroke-width="20" opacity=".8"/>
+<path d="M50 550 C220 470 330 535 490 475 S735 450 900 515" fill="none" stroke="#6bbcff" stroke-width="12" opacity=".8"/>
+
+<!-- Aquarius urn -->
+<g transform="translate(680 310)">
+<path d="M-95 -110 Q0 -145 95 -110 L78 -70 Q0 -92 -78 -70Z" fill="#b77b43" stroke="#60391f" stroke-width="7"/>
+<rect x="-92" y="-70" width="184" height="210" rx="58" fill="url(#gold)" stroke="#60391f" stroke-width="8"/>
+<circle cx="0" cy="20" r="66" fill="#2e175f" stroke="#e4bd72" stroke-width="8"/>
+<path d="M-38 0 L0 -25 L38 0 L0 25Z M-38 28 L0 3 L38 28 L0 53Z" fill="none" stroke="#e9cfff" stroke-width="12" stroke-linecap="round"/>
+<path d="M-65 140 C-120 190 -140 245 -170 290" fill="none" stroke="url(#water)" stroke-width="55" stroke-linecap="round"/>
 </g>
 
-<!-- flowing water -->
-<g fill="none" stroke="#7954a4" stroke-linecap="round">
-  <path d="M560 115 C735 35 865 55 1010 145 S1320 300 1580 125" stroke-width="25" opacity=".72"/>
-  <path d="M500 255 C700 170 845 195 1010 290 S1325 435 1600 260" stroke-width="20" opacity=".64"/>
-  <path d="M590 405 C760 340 900 365 1050 445 S1360 565 1600 405" stroke-width="14" opacity=".56"/>
-  <path d="M650 510 C810 460 950 485 1090 540 S1380 610 1570 520" stroke-width="8" opacity=".42"/>
+<!-- lion -->
+<g transform="translate(1170 150)">
+<circle cx="0" cy="70" r="120" fill="#b66c2d" opacity=".9"/>
+<circle cx="0" cy="70" r="82" fill="#d9a15a"/>
+<path d="M-52 75 Q0 25 52 75 L42 145 Q0 172 -42 145Z" fill="#c58a45"/>
+<ellipse cx="-28" cy="78" rx="10" ry="14" fill="#241b19"/><ellipse cx="28" cy="78" rx="10" ry="14" fill="#241b19"/>
+<path d="M-16 112 Q0 125 16 112" fill="none" stroke="#4b2818" stroke-width="7" stroke-linecap="round"/>
+<path d="M-120 35 Q-175 100 -125 165 M120 35 Q175 100 125 165" fill="none" stroke="#f1c477" stroke-width="28" stroke-linecap="round"/>
 </g>
 
-<!-- Aquarius water symbol -->
-<g transform="translate(1190 330)">
-  <circle r="150" fill="#fffaf2" fill-opacity=".28" stroke="url(#gold)" stroke-width="6"/>
-  <path d="M-92 -22 C-62 -62 -28 -62 0 -22 S62 18 92 -22" fill="none" stroke="url(#gold)" stroke-width="13" stroke-linecap="round"/>
-  <path d="M-92 52 C-62 12 -28 12 0 52 S62 92 92 52" fill="none" stroke="url(#gold)" stroke-width="13" stroke-linecap="round"/>
-  <circle cx="-105" cy="-95" r="8" fill="#7650a2"/>
-  <circle cx="105" cy="-95" r="8" fill="#7650a2"/>
+<!-- panda -->
+<g transform="translate(970 355)">
+<ellipse cx="0" cy="130" rx="235" ry="115" fill="#241b2e"/>
+<rect x="-150" y="20" width="300" height="220" rx="115" fill="#fffaf6"/>
+<ellipse cx="-110" cy="115" rx="65" ry="90" fill="#21182b"/><ellipse cx="110" cy="115" rx="65" ry="90" fill="#21182b"/>
+<circle cx="0" cy="-15" r="142" fill="#fffaf6" stroke="#21182b" stroke-width="12"/>
+<circle cx="-105" cy="-120" r="52" fill="#21182b"/><circle cx="105" cy="-120" r="52" fill="#21182b"/>
+<ellipse cx="-58" cy="-15" rx="43" ry="58" fill="#21182b" transform="rotate(28 -58 -15)"/><ellipse cx="58" cy="-15" rx="43" ry="58" fill="#21182b" transform="rotate(-28 58 -15)"/>
+<ellipse cx="-45" cy="-18" rx="17" ry="25" fill="#fff"/><ellipse cx="45" cy="-18" rx="17" ry="25" fill="#fff"/>
+<circle cx="-43" cy="-18" r="10" fill="#2c164a"/><circle cx="43" cy="-18" r="10" fill="#2c164a"/>
+<path d="M-18 28 Q0 45 18 28" fill="none" stroke="#21182b" stroke-width="8" stroke-linecap="round"/>
+<!-- sunglasses -->
+<path d="M-105 -60 Q-48 -95 0 -60 Q48 -95 105 -60 L92 -10 Q42 15 0 -25 Q-42 15 -92 -10Z" fill="#26154f" stroke="#d3a8ff" stroke-width="7" opacity=".95"/>
+<!-- hoodie -->
+<path d="M-145 85 Q0 145 145 85 L175 250 L-175 250Z" fill="url(#purple)"/>
+<path d="M-75 120 Q0 175 75 120" fill="none" stroke="#d7b6ff" stroke-width="7"/>
+<path d="M-42 170 L0 145 L42 170 L0 195Z M-42 202 L0 177 L42 202 L0 227Z" fill="none" stroke="#f3e5ff" stroke-width="10"/>
 </g>
 
-<!-- subtle celestial dots -->
-<g fill="#fffaf2">
- <circle cx="1010" cy="70" r="7"/><circle cx="1080" cy="125" r="5"/><circle cx="1300" cy="70" r="6"/>
- <circle cx="1415" cy="150" r="8"/><circle cx="1490" cy="235" r="5"/><circle cx="930" cy="225" r="5"/>
-</g>
+<!-- constellation -->
+<g stroke="#fff" stroke-width="3" opacity=".65"><path d="M250 110L330 60L410 120L490 75"/><path d="M250 110L410 120"/></g>
+<g fill="#fff"><circle cx="250" cy="110" r="7"/><circle cx="330" cy="60" r="5"/><circle cx="410" cy="120" r="7"/><circle cx="490" cy="75" r="5"/></g>
 </svg>
