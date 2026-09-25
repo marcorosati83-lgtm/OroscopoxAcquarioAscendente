@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { toPng } from "html-to-image";
 import jsPDF from "jspdf";
 import tzlookup from "tz-lookup";
+import { supabase } from "./lib/supabase";
 import "./styles.css";
 
 const SIGNS = [
