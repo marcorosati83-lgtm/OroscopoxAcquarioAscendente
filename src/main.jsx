@@ -339,6 +339,7 @@ function App(){
             <span>ORA <b>{result.form.time}</b></span>
             <span>LUOGO <b>{result.form.city}</b></span>
           </div>
+          <div className="asc-hero-badge" aria-label={"Ascendente " + result.asc.sign.name}>{result.asc.sign.symbol}</div>
         </div>
 
         <div className="card-signs">
