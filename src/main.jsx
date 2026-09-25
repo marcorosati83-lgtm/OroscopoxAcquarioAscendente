@@ -206,7 +206,7 @@ function App(){
       const ctx=canvas.getContext("2d");
       ctx.fillStyle="#fbf3e9";
       ctx.fillRect(0,0,width,height);
-      const scale=Math.max(width/img.width,height/img.height);
+      const scale=Math.min(width/img.width,height/img.height);
       const dw=img.width*scale, dh=img.height*scale;
       const dx=(width-dw)/2, dy=(height-dh)/2;
       ctx.drawImage(img,dx,dy,dw,dh);
@@ -282,7 +282,7 @@ function App(){
           <div className="card-hero-copy">
             <div className="card-kicker">IL MIO PROFILO</div>
             <div className="card-title">ASTROLOGICO</div>
-            {result.form.name && (<><div className="card-name">{result.form.name}</div><div className="card-tagline">“Visione oltre i confini,<br/>con un cuore che brilla.”</div><div className="card-divider">✦</div></>)}
+            {result.form.name && (<><div className="card-name">{result.form.name}</div><div className="card-divider">✦</div></>)}
           </div>
           <div className="card-birth">
             <span>DATA <b>{new Date(result.form.date+"T12:00").toLocaleDateString("it-IT")}</b></span>
@@ -304,12 +304,12 @@ function App(){
         </div>
 
         <div className="profile-grid">
-          <article><div className="profile-icon purple">♧</div><h5>MENTALITÀ</h5><p>{result.profile.mind}</p></article>
-          <article><div className="profile-icon pink">♥</div><h5>NELLE RELAZIONI</h5><p>{result.profile.love}</p></article>
-          <article><div className="profile-icon purple">●●●</div><h5>COME TI VEDONO GLI ALTRI</h5><p>{result.profile.others}</p></article>
-          <article><div className="profile-icon gold">★</div><h5>I TUOI PUNTI DI FORZA</h5><ul>{result.profile.strengths.map(x=><li key={x}>{x}</li>)}</ul></article>
-          <article><div className="profile-icon purple">◆</div><h5>LE TUE SFIDE</h5><ul>{result.profile.challenges.map(x=><li key={x}>{x}</li>)}</ul></article>
-          <article><div className="profile-icon gold">●</div><h5>CONSIGLIO PER TE</h5><p>{result.profile.advice}</p></article>
+          <article><div className="profile-icon purple" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 8c-7 0-11 5-11 11 0 2 .6 4 1.8 5.6C12.8 26.3 11 29.4 11 33c0 4 3 7 7 7 2.3 0 4.4-1.1 5.8-2.9.9 1.8 2.7 2.9 5 2.9 4 0 7.2-3.1 7.2-7 0-3.6-1.8-6.7-3.8-8.4C33.4 23 34 21 34 19c0-6-4-11-10-11Z"/><path d="M24 11v26M17 17c3 0 4 2 4 4M31 17c-3 0-4 2-4 4M16 28c3 0 5 1 6 4M32 28c-3 0-5 1-6 4"/></svg></div><h5>MENTALITÀ</h5><p>{result.profile.mind}</p></article>
+          <article><div className="profile-icon pink" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 39S8 30 8 18c0-6 4-10 9-10 3 0 5.6 1.7 7 4.2C25.4 9.7 28 8 31 8c5 0 9 4 9 10 0 12-16 21-16 21Z"/></svg></div><h5>NELLE RELAZIONI</h5><p>{result.profile.love}</p></article>
+          <article><div className="profile-icon purple" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="6"/><circle cx="11" cy="19" r="5"/><circle cx="37" cy="19" r="5"/><path d="M14 39c0-8 4-12 10-12s10 4 10 12M2 38c0-6 3-10 9-10 3 0 5 1 7 3M46 38c0-6-3-10-9-10-3 0-5 1-7 3"/></svg></div><h5>COME TI VEDONO GLI ALTRI</h5><p>{result.profile.others}</p></article>
+          <article><div className="profile-icon gold" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m24 5 5.4 11 12.1 1.8-8.8 8.5 2.1 12-10.8-5.7-10.8 5.7 2.1-12-8.8-8.5L18.6 16 24 5Z"/></svg></div><h5>I TUOI PUNTI DI FORZA</h5><ul>{result.profile.strengths.map(x=><li key={x}>{x}</li>)}</ul></article>
+          <article><div className="profile-icon purple" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 39 18 19l7 9 6-11 11 22H6Z"/><path d="M31 10v12M25 16h12"/></svg></div><h5>LE TUE SFIDE</h5><ul>{result.profile.challenges.map(x=><li key={x}>{x}</li>)}</ul></article>
+          <article><div className="profile-icon gold" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M16 22c0-6 3-11 8-11s8 5 8 11c0 4-2 6-5 9H21c-3-3-5-5-5-9Z"/><path d="M20 36h8M21 40h6M24 4v4M10 10l4 4M38 10l-4 4"/></svg></div><h5>CONSIGLIO PER TE</h5><p>{result.profile.advice}</p></article>
         </div>
 
         <div className="card-footer"><b>@oroscopoxacquario</b><span>Instagram · Facebook</span></div>
