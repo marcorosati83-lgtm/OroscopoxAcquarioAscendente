@@ -256,7 +256,7 @@ function App(){
 
       <div className="astro-card" ref={cardRef}>
         <div className="card-hero">
-          <img src="/assets/kairo-panda.png" alt="Kairo Panda" />
+          <img src="/assets/kairo-panda.svg" alt="Kairo Panda" />
           <div className="hero-overlay"></div>
           <div className="card-hero-copy">
             <div className="card-kicker">IL MIO PROFILO</div>
