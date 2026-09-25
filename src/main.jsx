@@ -257,7 +257,6 @@ function App(){
 
       <div className="actions download-actions">
         <button className="download-btn pdf" onClick={savePdf}><strong>PDF</strong><span>Formato stampa A5</span><b>›</b></button>
-        <button className="download-btn mobile" onClick={()=>saveWallpaper(1440,2560,"profilo-astrologico-mobile.png")}><strong>▯</strong><span>Sfondo cellulare 1440×2560</span><b>›</b></button>
       </div>
 
       <div className="astro-card" ref={cardRef}>
