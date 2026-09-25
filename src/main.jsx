@@ -278,7 +278,7 @@ function App(){
 
       <div className="astro-card" ref={cardRef}>
         <div className="card-hero">
-          <img src="/assets/hero-stellar-clean.svg" alt="Sfondo stellato astrologico" />
+          <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IrCswCI2cljMhgXUxCCGJSFFOh/0dce750c-0803-41b5-9a56-e402d576ca1a.png" alt="Sfondo stellato astrologico" />
           <div className="card-hero-copy">
             <div className="card-kicker">IL MIO PROFILO</div>
             <div className="card-title">ASTROLOGICO</div>
