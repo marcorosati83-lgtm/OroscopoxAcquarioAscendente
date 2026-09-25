@@ -149,6 +149,7 @@ function App(){
   const [cityQuery,setCityQuery] = useState("");
   const [cities,setCities] = useState([]);
   const [loadingCities,setLoadingCities] = useState(false);
+  const [saveProfile,setSaveProfile] = useState(false);
   const cardRef = useRef(null);
 
   async function searchCity(){
@@ -174,12 +175,29 @@ function App(){
     setCities([]);
   }
 
-  function calculate(){
+  async function calculate(){
     if(!form.date || !form.time || !form.lat || !form.lon) return;
     const [y,m,d] = form.date.split("-").map(Number);
     const sun = sunSign(m,d);
     const asc = calculateAscendant(form.date,form.time,Number(form.lat),Number(form.lon),form.timezone);
     setResult({sun,asc,form,profile:ASC_PROFILES[asc.sign.name],combo:buildCombination(sun,asc.sign)});
+
+    if(saveProfile){
+      const { error } = await supabase.from("calculations").insert({
+        name: form.name || null,
+        birth_date: form.date,
+        birth_time: form.time,
+        birth_place: form.city,
+        latitude: Number(form.lat),
+        longitude: Number(form.lon),
+        timezone: form.timezone,
+        sun_sign: sun.name,
+        ascendant_sign: asc.sign.name,
+        ascendant_degree: asc.degree,
+        ascendant_minute: asc.minute
+      });
+      if(error) console.error("Errore salvataggio Supabase:", error);
+    }
   }
 
   async function savePng(){
@@ -242,7 +260,11 @@ function App(){
         </label>
       </div>
       <button className="primary" onClick={calculate}>CALCOLA IL MIO PROFILO</button>
-      <div className="privacy">Il calcolo viene eseguito nel browser. I dati non vengono salvati automaticamente.</div>
+      <label className="save-consent">
+        <input type="checkbox" checked={saveProfile} onChange={e=>setSaveProfile(e.target.checked)} />
+        <span>Salva il mio profilo nel database per poterlo utilizzare in future funzioni.</span>
+      </label>
+      <div className="privacy">Il calcolo viene eseguito nel browser. I dati vengono salvati solo se selezioni l’opzione sopra.</div>
     </section>
 
     {result && <section className="results">
