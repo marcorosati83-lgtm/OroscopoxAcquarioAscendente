@@ -149,7 +149,6 @@ function App(){
   const [cityQuery,setCityQuery] = useState("");
   const [cities,setCities] = useState([]);
   const [loadingCities,setLoadingCities] = useState(false);
-  const [saveProfile,setSaveProfile] = useState(false);
   const [saveStatus,setSaveStatus] = useState(null);
   const cardRef = useRef(null);
 
@@ -245,8 +244,7 @@ function App(){
       </div>
       <button className="primary" onClick={calculate}>CALCOLA IL MIO PROFILO</button>
       <label className="save-consent">
-        <input type="checkbox" checked={saveProfile} onChange={e=>setSaveProfile(e.target.checked)} />
-        <span>Salva il mio profilo nel database per poterlo utilizzare in future funzioni.</span>
+
       </label>
       {saveStatus && <div className={`save-status ${saveStatus.type}`}>{saveStatus.message}</div>}
       <div className="privacy">Il calcolo viene eseguito nel browser. I dati vengono salvati solo se selezioni l’opzione sopra.</div>
