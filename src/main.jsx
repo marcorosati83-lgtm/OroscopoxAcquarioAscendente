@@ -328,12 +328,12 @@ function App(){
 
       <div className="astro-card" ref={cardRef}>
         <div className="card-hero">
-          <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IrCswCI2cljMhgXUxCCGJSFFOh/bb586008-c108-4fb0-a6ef-02add581b4ab.png" alt="Cielo stellato astrologico" crossOrigin="anonymous" />
+          <img src="/assets/hero-cosmic.png" alt="Cielo stellato astrologico" />
           <div className="hero-overlay"></div>
           <div className="card-hero-copy">
             <div className="card-kicker">IL MIO PROFILO</div>
             <div className="card-title">ASTROLOGICO</div>
-            {result.form.name && <div className="card-name">{result.form.name}</div>}
+            {result.form.name && <div className="card-name">{result.form.name}</div><div className="card-tagline">“Visione oltre i confini,<br/>con un cuore che brilla.”</div><div className="card-divider">✦</div>}
           </div>
           <div className="card-birth">
             <span>DATA <b>{new Date(result.form.date+"T12:00").toLocaleDateString("it-IT")}</b></span>
@@ -344,7 +344,7 @@ function App(){
 
         <div className="card-signs">
           <div className="card-sign solar"><div className="sign-orb">{result.sun.symbol}</div><div><small>SEGNO SOLARE</small><b>{result.sun.name}</b><span>{result.sun.element} · {result.sun.modality} · {result.sun.ruler}</span></div></div>
-          <div className="plus">+</div>
+          <div className="plus"></div>
           <div className="card-sign rising"><div className="sign-orb">{result.asc.sign.symbol}</div><div><small>ASCENDENTE</small><b>{result.asc.sign.name}</b><span>{result.asc.sign.element} · {result.asc.sign.modality} · {result.asc.sign.ruler}</span></div><strong>{result.asc.degree}° {String(result.asc.minute).padStart(2,"0")}'</strong></div>
         </div>
 
