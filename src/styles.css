@@ -423,3 +423,139 @@ main{max-width:1080px;margin:auto;padding:42px 18px 80px}.hero{text-align:center
   .profile-grid{gap:7px;padding:7px 9px}.profile-grid article{padding:8px;min-height:95px}.profile-grid h5{font-size:7px}.profile-grid p,.profile-grid li{font-size:7px}
   .card-footer{margin:2px 12px 8px}.card-footer b{font-size:14px}.card-footer span{font-size:7px}
 }
+
+
+/* V1.4 HERO MASTER — sfondo stellato pulito, contenuti 100% dinamici */
+.card-hero{
+  position:relative;
+  height:33%;
+  min-height:0;
+  overflow:hidden;
+  background:#17132e;
+}
+.card-hero>img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  transform:none;
+}
+.hero-left-cover,
+.hero-right-cover{
+  display:none !important;
+}
+.card-hero-copy{
+  position:absolute;
+  left:30px;
+  top:24px;
+  z-index:4;
+  width:43%;
+}
+.card-kicker{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:25px;
+  line-height:.96;
+  letter-spacing:-.02em;
+  color:#fff8ee;
+  text-shadow:0 2px 12px rgba(24,13,35,.38);
+}
+.card-title{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:40px;
+  line-height:.94;
+  letter-spacing:-.035em;
+  color:#e9bd70;
+  text-shadow:0 2px 12px rgba(24,13,35,.38);
+}
+.card-name{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:22px;
+  line-height:1.05;
+  margin-top:12px;
+  color:#fff8ee;
+  text-shadow:0 2px 10px rgba(24,13,35,.45);
+}
+.card-tagline{
+  margin-top:13px;
+  font-family:"Segoe Print","Bradley Hand",cursive;
+  font-style:italic;
+  font-size:12px;
+  line-height:1.4;
+  color:#fff7ed;
+  text-shadow:0 2px 10px rgba(24,13,35,.45);
+}
+.card-divider{
+  margin-top:8px;
+  width:140px;
+  border-top:1px solid rgba(238,194,117,.75);
+  text-align:center;
+  line-height:0;
+  color:#e9bd70;
+  font-size:13px;
+}
+.card-birth{
+  position:absolute;
+  right:18px;
+  top:22px;
+  z-index:4;
+  width:145px;
+  padding-left:16px;
+  border-left:1px solid rgba(255,240,214,.55);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.card-birth span{
+  display:flex;
+  flex-direction:column;
+  color:#f0c77d;
+  font-size:8px;
+  letter-spacing:.12em;
+  text-shadow:0 2px 8px rgba(24,13,35,.45);
+}
+.card-birth b{
+  color:#fff9f1;
+  font-size:12px;
+  letter-spacing:0;
+  margin-top:2px;
+  text-shadow:0 2px 8px rgba(24,13,35,.45);
+}
+.asc-hero-badge{
+  position:absolute;
+  right:27px;
+  bottom:22px;
+  z-index:5;
+  width:62px;
+  height:62px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(35,20,55,.58);
+  border:1px solid rgba(239,194,117,.9);
+  box-shadow:0 8px 24px rgba(15,8,28,.28), inset 0 0 0 2px rgba(255,255,255,.16);
+  color:#f0c77d;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:35px;
+  backdrop-filter:blur(3px);
+}
+@media(max-width:700px){
+  .card-hero{height:34%}
+  .card-hero-copy{left:16px;top:16px;width:45%}
+  .card-kicker{font-size:18px}
+  .card-title{font-size:28px}
+  .card-name{font-size:16px}
+  .card-tagline{font-size:8px}
+  .card-divider{width:90px}
+  .card-birth{right:9px;top:14px;width:90px;padding-left:9px;gap:7px}
+  .card-birth span{font-size:6px}
+  .card-birth b{font-size:8px}
+  .asc-hero-badge{right:12px;bottom:14px;width:48px;height:48px;font-size:27px}
+}
+
+/* Due soli download previsti dal master definitivo */
+.download-actions{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
