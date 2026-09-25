@@ -179,7 +179,7 @@ function App(){
     if(!form.date || !form.time || !form.lat || !form.lon || !form.timezone) return;
     const [y,m,d] = form.date.split("-").map(Number);
     const currentYear = new Date().getFullYear();
-    if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(form.date) || y < 1900 || y > currentYear || m < 1 || m > 12 || d < 1 || d > 31){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(form.date) || y < 1900 || y > currentYear || m < 1 || m > 12 || d < 1 || d > 31){
       setSaveStatus({type:"error",message:"Inserisci una data di nascita valida."});
       return;
     }
