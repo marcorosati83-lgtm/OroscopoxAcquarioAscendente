@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { Analytics } from "@vercel/analytics/react";
 import { toPng } from "html-to-image";
 import jsPDF from "jspdf";
 import tzlookup from "tz-lookup";
@@ -359,4 +360,4 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
 }
 
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(<> <App /> <Analytics /></>);
