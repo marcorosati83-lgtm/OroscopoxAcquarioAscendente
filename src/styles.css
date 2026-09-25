@@ -753,3 +753,27 @@ main{max-width:1080px;margin:auto;padding:42px 18px 80px}.hero{text-align:center
   flex:0 0 auto;
   accent-color:#7b4fa3;
 }
+
+
+.save-status{
+  max-width:760px;
+  margin:10px auto 0;
+  padding:10px 12px;
+  border-radius:10px;
+  font-size:13px;
+  line-height:1.4;
+  text-align:left;
+}
+.save-status.saving{
+  background:#f4efe8;
+  color:#6f6475;
+}
+.save-status.success{
+  background:#edf8f0;
+  color:#246b3a;
+}
+.save-status.error{
+  background:#fff0ef;
+  color:#9b3028;
+  border:1px solid #f0c7c2;
+}
