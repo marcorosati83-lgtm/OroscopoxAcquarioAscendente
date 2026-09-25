@@ -198,49 +198,6 @@ function App(){
 
   }
 
-  async function saveWallpaper(width,height,filename){
-    if(!cardRef.current) return;
-    const source=await toPng(cardRef.current,{pixelRatio:3,cacheBust:true});
-    const img=new Image();
-    img.onload=async()=>{
-      const canvas=document.createElement("canvas");
-      canvas.width=width; canvas.height=height;
-      const ctx=canvas.getContext("2d");
-      ctx.fillStyle="#fbf3e9";
-      ctx.fillRect(0,0,width,height);
-      const scale=Math.min(width/img.width,height/img.height);
-      const dw=img.width*scale, dh=img.height*scale;
-      const dx=(width-dw)/2, dy=(height-dh)/2;
-      ctx.drawImage(img,dx,dy,dw,dh);
-
-      canvas.toBlob(async blob=>{
-        if(!blob) return;
-        const file=new File([blob],filename,{type:"image/png"});
-
-        // iOS/iPadOS PWA: the normal <a download> flow is unreliable.
-        // Use the native Share Sheet so the user can save the image to Photos.
-        if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
-          try{
-            await navigator.share({title:"Profilo astrologico",files:[file]});
-            return;
-          }catch(error){
-            if(error?.name === "AbortError") return;
-          }
-        }
-
-        const url=URL.createObjectURL(blob);
-        const a=document.createElement("a");
-        a.download=filename;
-        a.href=url;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(()=>URL.revokeObjectURL(url),1000);
-      },"image/png");
-    };
-    img.src=source;
-  }
-
   return <main>
     <section className="hero">
       <div className="eyebrow">OROSCOPO ACQUARIO</div>
