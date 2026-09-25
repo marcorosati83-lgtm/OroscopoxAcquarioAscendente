@@ -145,7 +145,6 @@ function calculateAscendant(dateStr,timeStr,lat,lon,timeZone){
 function App(){
   const [form,setForm] = useState({name:"",date:"",time:"12:00",city:"",lat:"",lon:"",timezone:""});
   const [result,setResult] = useState(null);
-  const [downloadMenu,setDownloadMenu] = useState(false);
   const [cityQuery,setCityQuery] = useState("");
   const [cities,setCities] = useState([]);
   const [loadingCities,setLoadingCities] = useState(false);
@@ -205,8 +204,7 @@ function App(){
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 75% 22%,rgba(190,142,76,.32),transparent 24%),radial-gradient(circle at 18% 75%,rgba(116,84,166,.25),transparent 28%);"></div>
       <div style="position:absolute;left:7%;top:7%;font-family:Georgia,serif;font-size:${Math.round(width*.055)}px;line-height:.95;font-weight:700;color:#20263a">IL MIO PROFILO<br>ASTROLOGICO</div>
       <div style="position:absolute;left:7%;top:22%;font-family:Georgia,serif;font-size:${Math.round(width*.028)}px;color:#7454a6">${result.form.name || "Profilo astrologico"}</div>
-      <img src="/assets/kairo-panda.svg" style="position:absolute;width:${Math.round(width*.62)}px;height:${Math.round(height*.62)}px;object-fit:contain;right:3%;top:8%;" />
-      <div style="position:absolute;right:7%;top:9%;width:${Math.round(width*.14)}px;height:${Math.round(width*.14)}px;border-radius:50%;background:linear-gradient(145deg,#d09a58,#75451f);display:grid;place-items:center;color:white;font-size:${Math.round(width*.075)}px;box-shadow:0 12px 40px rgba(86,48,20,.25)">${result.asc.sign.symbol}</div>
+      <img src="/assets/hero-cosmic.svg" style="position:absolute;width:100%;height:42%;object-fit:cover;left:0;top:0;" />
       <div style="position:absolute;left:7%;right:7%;top:42%;padding:${Math.round(width*.025)}px;background:rgba(255,250,243,.94);border:2px solid #eadbd0;border-radius:36px;display:flex;justify-content:space-between;align-items:center;">
         <div><div style="font-size:${Math.round(width*.015)}px;letter-spacing:.16em;color:#765b8f;font-weight:700">SEGNO SOLARE</div><div style="font-family:Georgia,serif;font-size:${Math.round(width*.042)}px;font-weight:700">${result.sun.symbol} ${result.sun.name}</div><div style="font-size:${Math.round(width*.016)}px;color:#6d7483">${result.sun.element} · ${result.sun.modality} · ${result.sun.ruler}</div></div>
         <div style="font-family:Georgia,serif;font-size:${Math.round(width*.035)}px;color:#a8783f">+</div>
@@ -220,7 +218,6 @@ function App(){
       const data=await toPng(el,{width,height,pixelRatio:1,cacheBust:true});
       const a=document.createElement("a"); a.download=filename; a.href=data; a.click();
     }finally{el.remove();}
-    setDownloadMenu(false);
   }
 
   return <main>
@@ -278,15 +275,13 @@ function App(){
 
       <div className="actions download-actions">
         <button className="download-btn pdf" onClick={savePdf}><strong>PDF</strong><span>Formato stampa A5</span><b>›</b></button>
-        <button className="download-btn desktop" onClick={()=>saveWallpaper(2560,1440,"profilo-astrologico-2K.png")}><strong>2K</strong><span>Wallpaper desktop 2560×1440</span><b>›</b></button>
         <button className="download-btn mobile" onClick={()=>saveWallpaper(1440,2560,"profilo-astrologico-mobile.png")}><strong>▯</strong><span>Sfondo cellulare 1440×2560</span><b>›</b></button>
       </div>
 
       <div className="astro-card" ref={cardRef}>
         <div className="card-hero">
-          <img src="/assets/hero-aquarius.svg" alt="Illustrazione Acquario" />
+          <img src="/assets/hero-cosmic.svg" alt="Cielo stellato astrologico" />
           <div className="hero-overlay"></div>
-          <div className="asc-hero-badge">{result.asc.sign.symbol}</div>
           <div className="card-hero-copy">
             <div className="card-kicker">IL MIO PROFILO</div>
             <div className="card-title">ASTROLOGICO</div>
