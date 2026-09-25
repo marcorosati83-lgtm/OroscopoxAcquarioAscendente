@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import { toPng } from "html-to-image";
 import jsPDF from "jspdf";
 import tzlookup from "tz-lookup";
-import { supabase } from "./lib/supabase";
 import "./styles.css";
 
 const SIGNS = [
@@ -183,7 +182,8 @@ function App(){
     setResult({sun,asc,form,profile:ASC_PROFILES[asc.sign.name],combo:buildCombination(sun,asc.sign)});
 
     if(saveProfile){
-      const { error } = await supabase.from("calculations").insert({
+      const { saveCalculation } = await import("./lib/supabase");
+      const error = await saveCalculation({
         name: form.name || null,
         birth_date: form.date,
         birth_time: form.time,
