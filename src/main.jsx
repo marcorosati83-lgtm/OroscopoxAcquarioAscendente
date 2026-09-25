@@ -289,7 +289,6 @@ function App(){
             <span>ORA <b>{result.form.time}</b></span>
             <span>LUOGO <b>{result.form.city}</b></span>
           </div>
-          <div className="asc-hero-badge" aria-label={"Ascendente " + result.asc.sign.name}>{result.asc.sign.symbol}</div>
         </div>
 
         <div className="card-signs">
@@ -305,12 +304,12 @@ function App(){
         </div>
 
         <div className="profile-grid">
-          <article><h5>MENTALITÀ</h5><p>{result.profile.mind}</p></article>
-          <article><h5>NELLE RELAZIONI</h5><p>{result.profile.love}</p></article>
-          <article><h5>COME TI VEDONO GLI ALTRI</h5><p>{result.profile.others}</p></article>
-          <article><h5>I TUOI PUNTI DI FORZA</h5><ul>{result.profile.strengths.map(x=><li key={x}>{x}</li>)}</ul></article>
-          <article><h5>LE TUE SFIDE</h5><ul>{result.profile.challenges.map(x=><li key={x}>{x}</li>)}</ul></article>
-          <article><h5>CONSIGLIO PER TE</h5><p>{result.profile.advice}</p></article>
+          <article><div className="profile-icon purple">♧</div><h5>MENTALITÀ</h5><p>{result.profile.mind}</p></article>
+          <article><div className="profile-icon pink">♥</div><h5>NELLE RELAZIONI</h5><p>{result.profile.love}</p></article>
+          <article><div className="profile-icon purple">●●●</div><h5>COME TI VEDONO GLI ALTRI</h5><p>{result.profile.others}</p></article>
+          <article><div className="profile-icon gold">★</div><h5>I TUOI PUNTI DI FORZA</h5><ul>{result.profile.strengths.map(x=><li key={x}>{x}</li>)}</ul></article>
+          <article><div className="profile-icon purple">◆</div><h5>LE TUE SFIDE</h5><ul>{result.profile.challenges.map(x=><li key={x}>{x}</li>)}</ul></article>
+          <article><div className="profile-icon gold">●</div><h5>CONSIGLIO PER TE</h5><p>{result.profile.advice}</p></article>
         </div>
 
         <div className="card-footer"><b>@oroscopoxacquario</b><span>Instagram · Facebook</span></div>
