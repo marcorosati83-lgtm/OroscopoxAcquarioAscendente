@@ -582,3 +582,141 @@ main{max-width:1080px;margin:auto;padding:42px 18px 80px}.hero{text-align:center
 .profile-grid h5{font-size:10px;color:#7629b7;margin-bottom:8px}
 .profile-grid p,.profile-grid li{font-size:11px;line-height:1.42}
 .download-actions{grid-template-columns:1fr 1fr !important}
+
+
+/* V1.4 MASTER VISUAL — final refinement */
+.astro-card{
+  max-width:760px;
+  aspect-ratio:.84 / 1;
+  border-radius:24px;
+  overflow:hidden;
+  background:#fbf3e9;
+  border:1px solid #e1cdb8;
+  box-shadow:0 24px 65px rgba(47,31,57,.16);
+}
+.card-hero{
+  height:32%;
+  min-height:0;
+  position:relative;
+  overflow:hidden;
+  background:#21153f;
+}
+.card-hero>img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  transform:none;
+}
+/* leggibilità del testo sopra il cielo senza alterare l'immagine */
+.card-hero-copy{
+  left:24px;
+  top:22px;
+  width:43%;
+  padding:10px 16px 13px;
+  border-radius:14px;
+  background:linear-gradient(90deg,rgba(255,248,239,.94),rgba(255,248,239,.78),rgba(255,248,239,.16));
+  z-index:4;
+  box-sizing:border-box;
+}
+.card-kicker{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:25px;
+  line-height:.98;
+  color:#172544;
+  text-shadow:none;
+}
+.card-title{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:39px;
+  line-height:.95;
+  color:#9b6422;
+  text-shadow:none;
+}
+.card-name{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  margin-top:9px;
+  color:#7130b2;
+  text-shadow:none;
+}
+.card-tagline{
+  margin-top:9px;
+  font-family:"Segoe Print","Bradley Hand",cursive;
+  font-style:italic;
+  font-size:11px;
+  line-height:1.4;
+  color:#273252;
+  text-shadow:none;
+}
+.card-divider{margin-top:7px;width:125px;border-top:1px solid #b07a36;color:#a56e2b;}
+.card-birth{
+  right:16px;
+  top:20px;
+  width:135px;
+  padding:12px 12px 12px 16px;
+  border:1px solid rgba(184,132,63,.34);
+  border-left:2px solid #b67b31;
+  border-radius:0 14px 14px 0;
+  background:rgba(255,249,242,.91);
+  box-shadow:0 8px 22px rgba(40,25,50,.12);
+  z-index:4;
+  box-sizing:border-box;
+  gap:8px;
+}
+.card-birth span{color:#7650a4;font-size:8px;letter-spacing:.12em;text-shadow:none;}
+.card-birth b{color:#17233f;font-size:11px;text-shadow:none;}
+.asc-hero-badge{display:none !important;}
+.card-signs{
+  position:relative;
+  z-index:5;
+  margin:-15px 18px 0;
+  padding:14px 22px;
+  min-height:88px;
+  grid-template-columns:1fr 64px 1fr;
+  border-radius:20px;
+  background:#fffaf4;
+  border:1px solid #e1cbb5;
+  box-shadow:0 10px 28px rgba(63,43,47,.12);
+}
+.card-sign{gap:12px;}
+.sign-orb{width:58px;height:58px;flex-basis:58px;font-size:31px;border:2px solid rgba(197,143,67,.75);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 4px 12px rgba(55,35,70,.12);}
+.card-sign small{font-size:8px;letter-spacing:.14em;color:#253354;}
+.card-sign b{font-size:24px;color:#173052;}
+.card-sign span{font-size:9px;color:#4c596d;}
+.plus{height:64px;}
+.plus span{height:40px;background:#b18d63;}
+.plus b{font-size:15px;color:#8e29b7;}
+.card-combo{padding:15px 28px 8px;}
+.card-combo .mini-label{font-size:9px;letter-spacing:.23em;color:#a06b2a;}
+.card-combo h4{font-size:27px;color:#1d3157;margin:4px 0 6px;}
+.card-combo p{font-size:11px;line-height:1.38;max-width:92%;color:#263653;}
+.profile-grid{gap:9px;padding:9px 18px 8px;}
+.profile-grid article{position:relative;min-height:106px;padding:12px 13px 11px 13px;border-radius:13px;background:rgba(255,251,246,.92);border:1px solid #e4d2c0;box-shadow:0 4px 14px rgba(63,43,47,.05);}
+.profile-icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;float:left;margin:0 9px 5px 0;font-weight:800;color:white;font-size:19px;line-height:1;background:linear-gradient(145deg,#7b2fd0,#4e1c9c);box-shadow:0 3px 10px rgba(70,30,120,.18);}
+.profile-icon.pink{background:linear-gradient(145deg,#ec2b98,#a20b68);}
+.profile-icon.gold{background:linear-gradient(145deg,#c58a35,#704016);}
+.profile-grid h5{font-size:10px;line-height:1.15;color:#7626b5;margin:5px 0 7px;min-height:24px;display:flex;align-items:center;}
+.profile-grid p,.profile-grid li{font-size:10px;line-height:1.38;color:#243453;}
+.profile-grid ul{clear:both;margin:2px 0 0;padding-left:18px;}
+.card-footer{margin:3px 24px 9px;padding:8px 0 0;border-top:1px solid #c49a67;text-align:center;}
+.card-footer b{font-size:18px;color:#5d2794;}
+.card-footer span{font-size:9px;color:#7040aa;}
+.download-actions{grid-template-columns:1fr 1fr !important;max-width:760px;margin:6px auto 0;}
+.download-btn{min-height:64px;border-radius:15px;}
+.download-btn.pdf{background:#fffaf3;color:#8d2bb8;border-color:#e0d0c0;}
+.download-btn.mobile{background:linear-gradient(135deg,#253d8e,#17265d);border-color:#233a88;}
+@media(max-width:700px){
+  .astro-card{aspect-ratio:.84/1;}
+  .card-hero{height:33%;}
+  .card-hero-copy{left:10px;top:10px;width:47%;padding:7px 9px 9px;}
+  .card-kicker{font-size:16px}.card-title{font-size:25px}.card-name{font-size:15px}.card-tagline{font-size:7px}
+  .card-birth{right:7px;top:8px;width:83px;padding:8px 7px 8px 9px;gap:5px}.card-birth span{font-size:5px}.card-birth b{font-size:7px}
+  .card-signs{margin:-10px 9px 0;padding:9px 11px;grid-template-columns:1fr 45px 1fr;min-height:70px}.sign-orb{width:45px;height:45px;flex-basis:45px;font-size:25px}.card-sign{gap:7px}.card-sign small{font-size:5px}.card-sign b{font-size:18px}.card-sign span{font-size:6px}.plus{height:52px}.plus b{font-size:10px}
+  .card-combo{padding:9px 12px 5px}.card-combo h4{font-size:18px}.card-combo p{font-size:7px}
+  .profile-grid{gap:6px;padding:6px 9px}.profile-grid article{min-height:84px;padding:7px}.profile-icon{width:25px;height:25px;font-size:13px;margin-right:6px}.profile-grid h5{font-size:6px;min-height:18px;margin:3px 0 5px}.profile-grid p,.profile-grid li{font-size:6px;line-height:1.3}
+  .card-footer{margin:2px 12px 6px}.card-footer b{font-size:13px}.card-footer span{font-size:6px}
+  .download-actions{grid-template-columns:1fr !important;}
+}
