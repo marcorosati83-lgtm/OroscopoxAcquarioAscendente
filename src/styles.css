@@ -559,3 +559,26 @@ main{max-width:1080px;margin:auto;padding:42px 18px 80px}.hero{text-align:center
 .download-actions{
   grid-template-columns:repeat(2,minmax(0,1fr)) !important;
 }
+
+
+/* MASTER CARD OVERRIDES */
+.astro-card{max-width:760px;aspect-ratio:2/3;border-radius:24px;overflow:hidden;background:#fbf3e9;border:1px solid #e3cfbc;box-shadow:0 24px 65px rgba(47,31,57,.16)}
+.card-hero{height:33%;min-height:0;position:relative;overflow:hidden;background:#20133d}
+.card-hero>img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center center;transform:none}
+.card-hero-copy{left:30px;top:27px;width:44%;z-index:4}
+.card-kicker{font-family:Georgia,"Times New Roman",serif;font-size:29px;line-height:.95;color:#fff8ef;text-shadow:0 2px 10px rgba(25,14,45,.4)}
+.card-title{font-family:Georgia,"Times New Roman",serif;font-size:43px;line-height:.94;color:#e9b96d;text-shadow:0 2px 10px rgba(25,14,45,.4)}
+.card-name{font-family:Georgia,"Times New Roman",serif;font-size:22px;margin-top:10px;color:#b982ff;text-shadow:0 2px 8px rgba(25,14,45,.45)}
+.card-tagline{margin-top:12px;font-family:"Segoe Print","Bradley Hand",cursive;font-size:12px;line-height:1.45;color:#fff8ef;text-shadow:0 2px 8px rgba(25,14,45,.45)}
+.card-birth{right:18px;top:22px;width:145px;z-index:4;padding-left:16px;border-left:1px solid rgba(255,244,224,.55);display:flex;flex-direction:column;gap:10px}
+.card-birth span{display:flex;flex-direction:column;color:#c79aff;font-size:8px;letter-spacing:.12em}
+.card-birth b{color:#fffaf1;font-size:12px;margin-top:2px}
+.asc-hero-badge{right:28px;bottom:20px;width:58px;height:58px;font-size:34px;background:rgba(42,24,68,.65);border:1px solid rgba(236,191,113,.9);color:#f1c77c}
+.card-signs{margin:-18px 18px 0;padding:15px 22px;min-height:94px;grid-template-columns:1fr 70px 1fr;border-radius:22px;background:#fffaf4;border:1px solid #e4cfbc;box-shadow:0 10px 30px rgba(63,43,47,.10)}
+.card-combo{text-align:center;padding:17px 28px 9px}
+.card-combo h4{font-size:28px;margin:6px 0}.card-combo p{font-size:12px;line-height:1.42;max-width:92%;margin:auto}
+.profile-grid{grid-template-columns:repeat(3,1fr);gap:10px;padding:10px 18px}
+.profile-grid article{min-height:118px;padding:12px 14px;border-radius:14px;background:rgba(255,250,244,.84);border:1px solid #e5d2c1}
+.profile-grid h5{font-size:10px;color:#7629b7;margin-bottom:8px}
+.profile-grid p,.profile-grid li{font-size:11px;line-height:1.42}
+.download-actions{grid-template-columns:1fr 1fr !important}
