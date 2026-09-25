@@ -732,3 +732,24 @@ main{max-width:1080px;margin:auto;padding:42px 18px 80px}.hero{text-align:center
 .profile-icon.pink svg,.profile-icon.gold svg{fill:none;}
 .profile-grid article{padding-top:12px;}
 @media(max-width:700px){.card-name{font-size:22px !important;}.profile-icon svg{width:16px;height:16px;stroke-width:2.4;}}
+
+
+.save-consent{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  max-width:760px;
+  margin:14px auto 0;
+  padding:0 4px;
+  font-size:13px;
+  line-height:1.45;
+  color:#6f6475;
+  cursor:pointer;
+}
+.save-consent input{
+  width:17px;
+  height:17px;
+  margin:1px 0 0;
+  flex:0 0 auto;
+  accent-color:#7b4fa3;
+}
