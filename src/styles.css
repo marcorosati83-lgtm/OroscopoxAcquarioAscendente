@@ -720,3 +720,15 @@ main{max-width:1080px;margin:auto;padding:42px 18px 80px}.hero{text-align:center
   .card-footer{margin:2px 12px 6px}.card-footer b{font-size:13px}.card-footer span{font-size:6px}
   .download-actions{grid-template-columns:1fr !important;}
 }
+
+
+/* V1.4.1 iconography + hero name + wallpaper fit */
+.card-name{font-size:32px !important;line-height:1.05;margin-top:8px;font-weight:500;}
+.card-tagline{display:none !important;}
+.card-divider{margin-top:9px !important;}
+.profile-icon{overflow:hidden;}
+.profile-icon svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round;}
+.profile-icon.purple svg{filter:drop-shadow(0 1px 1px rgba(30,0,70,.2));}
+.profile-icon.pink svg,.profile-icon.gold svg{fill:none;}
+.profile-grid article{padding-top:12px;}
+@media(max-width:700px){.card-name{font-size:22px !important;}.profile-icon svg{width:16px;height:16px;stroke-width:2.4;}}
