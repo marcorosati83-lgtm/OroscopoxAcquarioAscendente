@@ -188,36 +188,6 @@ function App(){
     const asc = calculateAscendant(form.date,form.time,Number(form.lat),Number(form.lon),form.timezone);
     setResult({sun,asc,form,profile:ASC_PROFILES[asc.sign.name],combo:buildCombination(sun,asc.sign)});
 
-    if(saveProfile){
-      setSaveStatus({type:"saving",message:"Salvataggio del profilo in corso…"});
-      try{
-        const { saveCalculation } = await import("./lib/supabase");
-        const status = await saveCalculation({
-          name: form.name || null,
-          birth_date: form.date,
-          birth_time: form.time,
-          birth_place: form.city,
-          latitude: Number(form.lat),
-          longitude: Number(form.lon),
-          timezone: form.timezone,
-          sun_sign: sun.name,
-          ascendant_sign: asc.sign.name,
-          ascendant_degree: asc.degree,
-          ascendant_minute: asc.minute
-        });
-        if(status?.ok){
-          setSaveStatus({type:"success",message:"Profilo salvato correttamente in Supabase."});
-        }else{
-          console.error("Errore salvataggio Supabase:", status);
-          setSaveStatus({type:"error",message:status?.message || "Il profilo non è stato salvato."});
-        }
-      }catch(error){
-        console.error("Errore caricamento Supabase:", error);
-        setSaveStatus({type:"error",message:error?.message || "Errore di collegamento a Supabase."});
-      }
-    }else{
-      setSaveStatus(null);
-    }
   }
 
   async function savePdf(){
