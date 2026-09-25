@@ -194,7 +194,7 @@ function App(){
     const pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a5"});
     pdf.addImage(data,"PNG",0,0,148,210);
     pdf.save("profilo-astrologico.pdf");
-    setDownloadMenu(false);
+
   }
 
   async function saveWallpaper(width,height,filename){
@@ -277,12 +277,9 @@ function App(){
       </div>
 
       <div className="actions download-actions">
-        <button className="primary" onClick={()=>setDownloadMenu(v=>!v)}>SCARICA PROFILO</button>
-        {downloadMenu && <div className="download-menu">
-          <button onClick={savePdf}><strong>PDF</strong><span>Formato stampa A5</span></button>
-          <button onClick={()=>saveWallpaper(2560,1440,"profilo-astrologico-2K.png")}><strong>2K</strong><span>Wallpaper desktop 2560×1440</span></button>
-          <button onClick={()=>saveWallpaper(1440,2560,"profilo-astrologico-mobile.png")}><strong>▯</strong><span>Sfondo cellulare 1440×2560</span></button>
-        </div>}
+        <button className="download-btn pdf" onClick={savePdf}><strong>PDF</strong><span>Formato stampa A5</span><b>›</b></button>
+        <button className="download-btn desktop" onClick={()=>saveWallpaper(2560,1440,"profilo-astrologico-2K.png")}><strong>2K</strong><span>Wallpaper desktop 2560×1440</span><b>›</b></button>
+        <button className="download-btn mobile" onClick={()=>saveWallpaper(1440,2560,"profilo-astrologico-mobile.png")}><strong>▯</strong><span>Sfondo cellulare 1440×2560</span><b>›</b></button>
       </div>
 
       <div className="astro-card" ref={cardRef}>
